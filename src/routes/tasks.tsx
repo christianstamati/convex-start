@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import type { Doc } from "convex/_generated/dataModel";
 import { Authenticated, AuthLoading, Unauthenticated } from "convex/react";
+import { Trash } from "lucide-react";
 import { type SubmitEvent, useState } from "react";
 import { SignOut } from "@/components/SignOut";
 import { Button } from "@/components/ui/button";
@@ -16,6 +17,7 @@ import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
 	useCreateTask,
+	useRemoveAllTasks,
 	useRemoveTask,
 	useTasks,
 	useUpdateTask,
@@ -82,6 +84,7 @@ function TaskList() {
 	const { mutate: createTask } = useCreateTask();
 	const { mutate: updateTask } = useUpdateTask();
 	const { mutate: removeTask } = useRemoveTask();
+	const { mutate: removeAllTasks } = useRemoveAllTasks();
 
 	const [draft, setDraft] = useState("");
 
@@ -94,8 +97,15 @@ function TaskList() {
 	}
 	return (
 		<Card>
-			<CardHeader>
+			<CardHeader className="flex items-center justify-between">
 				<CardTitle>Tasks</CardTitle>
+				<Button
+					variant="destructive"
+					size={"icon"}
+					onClick={() => removeAllTasks()}
+				>
+					<Trash />
+				</Button>
 			</CardHeader>
 			<CardContent className="space-y-4">
 				<form onSubmit={handleAdd} className="flex gap-2">
