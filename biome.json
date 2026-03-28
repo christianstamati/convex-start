@@ -19,19 +19,10 @@
       "tailwindDirectives": true
     }
   },
-  "formatter": {
-    "enabled": true,
-    "formatWithErrors": false,
-    "indentStyle": "space",
-    "indentWidth": 2,
-    "lineEnding": "lf",
-    "lineWidth": 80,
-    "attributePosition": "auto",
-    "bracketSameLine": false,
-    "bracketSpacing": true,
-    "expand": "auto",
-    "useEditorconfig": true
-  },
+	"formatter": {
+		"enabled": true,
+		"indentStyle": "tab"
+	},
   "linter": {
     "enabled": true,
     "rules": {
@@ -45,6 +36,7 @@
       "nursery": {
         "useSortedClasses": {
           "level": "warn",
+          "fix": "safe",
           "options": {
             "functions": ["cn", "cva"]
           }
@@ -52,19 +44,11 @@
       }
     }
   },
-  "javascript": {
-    "formatter": {
-      "jsxQuoteStyle": "double",
-      "quoteProperties": "asNeeded",
-      "trailingCommas": "es5",
-      "semicolons": "asNeeded",
-      "arrowParentheses": "always",
-      "bracketSameLine": false,
-      "quoteStyle": "double",
-      "attributePosition": "auto",
-      "bracketSpacing": true
-    }
-  },
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "double"
+		}
+	},
   "html": {
     "formatter": {
       "indentScriptAndStyle": false,
